@@ -36,7 +36,7 @@ router.get('/User/me', auth, async (req, res) => {
 })
 
 
-router.get('/User/login', async (req, res) => {
+router.post('/User/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
@@ -96,7 +96,7 @@ router.patch('/User/me', auth, async (req, res) => {
 
     try {
         
-        //const user = await User.findByIdAndUpdate(req.user._id)
+        const user = await User.findByIdAndUpdate(req.user._id)
         updates.forEach(update => req.user[update] = req.body[update])
         await req.user.save()
         res.send(req.user)

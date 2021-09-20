@@ -8,8 +8,8 @@ const mailfunc = async (email, name, cancel) => {
         port: 587,
         secure: false,
         auth: {
-            user: 'prajwalmishra3698@gmail.com',
-            pass: '8013218859@'
+            user: 'yourtaskmanager96@gmail.com',
+            pass: process.env.PASS
         },
     })
 
@@ -24,7 +24,7 @@ const mailfunc = async (email, name, cancel) => {
     }
 
     let info = await transporter.sendMail({
-        from: '"Fred Foo 👻" <prajwalmishra3698@gmail.com>', // sender address
+        from: '"Fred Foo 👻" <yourtaskmanager96@gmail.com>', // sender address
         to: email, // list of receivers
         subject: msg.subject, // Subject line
         text: msg.text // plain text body
